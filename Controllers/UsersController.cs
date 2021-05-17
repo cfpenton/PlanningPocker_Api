@@ -32,5 +32,20 @@ namespace APIREST_PlanningPocker.Controllers
             //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetUsers), new { id = users.Id }, users);
         }
+
+
+        /* GET: api/users/{id}*/
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Users>> GetUserById(int id)
+        {
+            var users = await _context.users.FindAsync(id);
+
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            return users;
+        }
     }
 }

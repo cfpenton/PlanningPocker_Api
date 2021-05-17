@@ -32,5 +32,20 @@ namespace APIREST_PlanningPocker.Controllers
             //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetLetters), new { id = letters.Id }, letters);
         }
+        
+
+        /* GET: api/letters/{id}*/
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Letters>> GetLetterById(int id)
+        {
+            var letters = await _context.letters.FindAsync(id);
+
+            if (letters == null)
+            {
+                return NotFound();
+            }
+
+            return letters;
+        }
     }
 }

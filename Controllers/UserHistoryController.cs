@@ -32,5 +32,21 @@ namespace APIREST_PlanningPocker.Controllers
             //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetUserHistory), new { id = userHistories.Id }, userHistories);
         }
+
+
+        /* GET: api/userHistory/{id}*/
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserHistory>> GetUserHistoryById(int id)
+        {
+            var userHistories = await _context.userHistories.FindAsync(id);
+
+            if (userHistories == null)
+            {
+                return NotFound();
+            }
+
+            return userHistories;
+        }
+        
     }
 }

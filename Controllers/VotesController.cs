@@ -15,14 +15,14 @@ namespace APIREST_PlanningPocker.Controllers
         {
             _context = context;
         }
-        /* api/votes */
+        /* GET: api/votes */
         [HttpGet]
         public ActionResult GetVotes()
         {
             return Ok(_context.votes.ToList());
         }
 
-        // POST: api/votes
+        /* POST: api/votes */
         [HttpPost]
         public async Task<ActionResult<Votes>> PostVote(Votes votes)
         {
@@ -31,6 +31,20 @@ namespace APIREST_PlanningPocker.Controllers
 
             //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetVotes), new { id = votes.Id }, votes);
+        }
+
+        /* GET: api/votes/{id}*/
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Votes>> GetVotoById(int id)
+        {
+            var votes = await _context.votes.FindAsync(id);
+
+            if (votes == null)
+            {
+                return NotFound();
+            }
+
+            return votes;
         }
     }
 }
