@@ -23,4 +23,18 @@ To run the project, execute the command: dotnet run
 
 and access the path: http://localhost:5000/api/users
 
+To change the database configuration it must be done from:
+
+DefaultConnection of the appsettings.json file
+
+To create the database you must use the commands:
+
+dotnet tool install --global dotnet-ef --version 3.1.4
+
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.1.4
+
+dotnet ef migrations add InitialCreate
+
+dotnet ef database update
+
 thanks :)
