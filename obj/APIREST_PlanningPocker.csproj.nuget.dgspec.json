@@ -13,6 +13,9 @@
         "packagesPath": "C:\\Users\\Krlo\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Krlo\\Desktop\\WORKFAST\\Desafio2\\codigo\\APIREST_PlanningPocker\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Krlo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
